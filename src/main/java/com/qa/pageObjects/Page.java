@@ -11,6 +11,9 @@ public abstract class Page {
     protected WebElement myAccountButton;
     @FindBy(xpath = "//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/ul/li[1]/a")
     protected WebElement registerButton;
+    @FindBy(xpath = "//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/ul/li[2]/a")
+    protected WebElement loginButton;
+
     @FindBy(xpath = "//*[@id=\"narbar-menu\"]/ul/li[1]/a")
     protected WebElement desktopsButton;
     @FindBy(xpath = "//*[@id=\"narbar-menu\"]/ul/li[1]/div/div/ul/li[2]/a")
@@ -25,6 +28,10 @@ public abstract class Page {
     public void navigateToRegisterPage() {
         myAccountButton.click();
         registerButton.click();
+    }
+    public void navigateToLoginPage(){
+        myAccountButton.click();
+        loginButton.click();
     }
 
     public void selectDesktopOption() {
