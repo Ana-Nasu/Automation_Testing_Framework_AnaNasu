@@ -28,7 +28,7 @@ public class WebDriverManager {
     private WebDriver createDriver() {
         switch (webDriverType) {
             case "CHROME":
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver-112");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
