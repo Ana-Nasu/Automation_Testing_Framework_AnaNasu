@@ -10,7 +10,6 @@ import java.nio.file.WatchEvent;
 import java.time.Duration;
 
 public class WaitManager {
-    private static WebDriver driver;
     private static WebDriverWait webDriverWait;
 
 

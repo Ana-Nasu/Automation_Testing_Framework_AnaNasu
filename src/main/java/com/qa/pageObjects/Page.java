@@ -35,9 +35,9 @@ public abstract class Page {
     }
 
     public void navigateToRegisterPage() {
-        WaitManager.waitTillTheElementIsVisible(myAccountButton);
+        waitManager.waitTillTheElementIsVisible(myAccountButton);
         myAccountButton.click();
-        WaitManager.waitTillTheElementIsClickable(registerButton);
+        waitManager.waitTillTheElementIsClickable(registerButton);
         registerButton.click();
     }
     public void navigateToLoginPage(){
