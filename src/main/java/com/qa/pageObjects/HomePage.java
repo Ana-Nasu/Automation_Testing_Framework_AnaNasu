@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends Page {
 
+    private final String ENDPOINT = "/index.php?route=common/home";
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -16,6 +17,11 @@ public class HomePage extends Page {
     }
 
     public void clickOnLoginButton(){
-      loginButton.click();
+        loginButton.click();
+    }
+
+    public HomePage toPage(){
+        driver.get(BASER_URL + ENDPOINT);
+        return this;
     }
 }

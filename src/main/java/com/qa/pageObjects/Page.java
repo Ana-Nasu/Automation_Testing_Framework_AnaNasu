@@ -1,9 +1,12 @@
 package com.qa.pageObjects;
 
+import com.qa.managers.PropertiesManagers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.lang.reflect.Method;
 
 public abstract class Page {
 
@@ -20,9 +23,10 @@ public abstract class Page {
     protected WebElement macButton;
 
     protected WebDriver driver;
+    protected final String BASER_URL = PropertiesManagers.getApplicationURL();
     public Page(WebDriver driver) {
-        PageFactory.initElements(driver, this);
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void navigateToRegisterPage() {
@@ -34,6 +38,15 @@ public abstract class Page {
         loginButton.click();
     }
 
+    public static void navigateToPage(String pageName,WebDriver driver){
+        Method method;
+        try{
+            method = Class.forName("pageObjects."+ pageName).getMethod("toPage");
+            method.invoke(Class.forName("pageObjects." + pageName).getConstructor(WebDriver.class).newInstance(driver));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void selectDesktopOption() {
         desktopsButton.click();
         macButton.click();
