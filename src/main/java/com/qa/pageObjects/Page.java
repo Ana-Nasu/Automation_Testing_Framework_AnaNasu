@@ -1,6 +1,7 @@
 package com.qa.pageObjects;
 
 import com.qa.managers.PropertiesManagers;
+import com.qa.managers.WaitManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,14 +24,20 @@ public abstract class Page {
     protected WebElement macButton;
 
     protected WebDriver driver;
+    protected WaitManager waitManager;
     protected final String BASER_URL = PropertiesManagers.getApplicationURL();
+
     public Page(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        waitManager = new WaitManager( driver);
+        this.driver = driver;
     }
 
     public void navigateToRegisterPage() {
+        WaitManager.waitTillTheElementIsVisible(myAccountButton);
         myAccountButton.click();
+        WaitManager.waitTillTheElementIsClickable(registerButton);
         registerButton.click();
     }
     public void navigateToLoginPage(){

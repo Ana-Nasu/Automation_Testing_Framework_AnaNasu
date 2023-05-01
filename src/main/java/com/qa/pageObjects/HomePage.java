@@ -10,9 +10,11 @@ public class HomePage extends Page {
     }
 
     public void clickOnMyAccountButton(){
+        waitManager.waitTillTheElementIsVisible(myAccountButton);
         myAccountButton.click();
     }
     public void clickOnRegisterButton(){
+        waitManager.waitTillTheElementIsClickable(registerButton);
         registerButton.click();
     }
 

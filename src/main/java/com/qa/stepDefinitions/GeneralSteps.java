@@ -32,4 +32,4 @@ public class GeneralSteps {
         Page.navigateToPage(pageName, testContext.getWebDriverManager().getDriver());
         System.out.println("Pagina " + pageName + " a fost accesata.");
     }
-}
+
