@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends Page {
 
+private final String ENDPOINT ="/index.php?route=account/register";
     @FindBy(id = "input-firstname")
     private WebElement firstNameInput;
     @FindBy(id = "input-lastname")
@@ -33,4 +34,10 @@ public class RegisterPage extends Page {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
     }
+
+    public RegisterPage toPage(){
+        driver.get(BASER_URL + ENDPOINT);
+        return this;
+    }
+
 }

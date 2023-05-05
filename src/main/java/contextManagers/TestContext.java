@@ -1,11 +1,12 @@
 package contextManagers;
 
+import com.qa.managers.PropertiesManagers;
 import com.qa.managers.WebDriverManager;
 
 public class TestContext {
     private final WebDriverManager webDriverManager;
     public TestContext() {
-        webDriverManager = new WebDriverManager("CHROME");
+        webDriverManager = new WebDriverManager(PropertiesManagers.getBroserType());
     };
 
     public WebDriverManager getWebDriverManager() {

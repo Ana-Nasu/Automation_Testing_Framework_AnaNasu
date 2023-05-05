@@ -1,5 +1,6 @@
 package com.qa.stepDefinitions;
 
+import com.qa.pageObjects.Page;
 import contextManagers.TestContext;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
@@ -26,4 +27,9 @@ public class GeneralSteps {
         assertTrue(testContext.getWebDriverManager().getDriver().getCurrentUrl().contains(keyword));
     }
 
+    @Given("{string} is opened")
+    public void isOpened(String pageName) {
+        Page.navigateToPage(pageName, testContext.getWebDriverManager().getDriver());
+        System.out.println("Pagina " + pageName + " a fost accesata.");
+    }
 }
