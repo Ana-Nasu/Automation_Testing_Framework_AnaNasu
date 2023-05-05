@@ -33,3 +33,4 @@ public class GeneralSteps {
         System.out.println("Pagina " + pageName + " a fost accesata.");
     }
 }
+

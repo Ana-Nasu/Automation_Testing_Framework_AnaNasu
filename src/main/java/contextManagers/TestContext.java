@@ -6,7 +6,7 @@ import com.qa.managers.WebDriverManager;
 public class TestContext {
     private final WebDriverManager webDriverManager;
     public TestContext() {
-        webDriverManager = new WebDriverManager(PropertiesManagers.getBroserType());
+        webDriverManager = new WebDriverManager(PropertiesManagers.getBrowserType());
     };
 
     public WebDriverManager getWebDriverManager() {

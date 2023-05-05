@@ -1,7 +1,7 @@
 package com.qa.managers;
 
-import javax.imageio.IIOException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesManagers {
@@ -13,18 +13,18 @@ public class PropertiesManagers {
 
         try {
             properties.load(new FileReader(propertiesFilePath));
-        } catch (IIOException exception) {
+        } catch (IOException exception) {
             exception.printStackTrace();
         }
     }
 
-    public static String getBroserType() {
+    public static String getBrowserType() {
         if (properties == null) initializeProperties();
-        String broserType = properties.getProperty("broserType");
-        if (broserType != null) {
-            return broserType;
+        String browserType = properties.getProperty("browserType");
+        if (browserType != null) {
+            return browserType;
         } else {
-            throw new RuntimeException("The broser type was not defined");
+            throw new RuntimeException("The browser type was not defined");
         }
     }
 
@@ -38,4 +38,4 @@ public class PropertiesManagers {
         }
     }
     }
-}
+

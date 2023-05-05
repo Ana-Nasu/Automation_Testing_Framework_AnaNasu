@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.time.Duration;
+
 public class WebDriverManager {
     private final String webDriverType;
     private WebDriver driver;
@@ -17,6 +19,7 @@ public class WebDriverManager {
     public WebDriver getDriver(){
         if (driver == null){
             driver = createDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         }
         return driver;
     }
@@ -41,6 +44,9 @@ public class WebDriverManager {
                 System.out.println("The driver was not created.");
                 System.out.println("There isn't defined such type of Driver: " + webDriverType);
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(45));
         return driver;
+
     }
 }
